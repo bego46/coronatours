@@ -19,14 +19,18 @@ def reserve(request):
 
 
 def det_reserve(request):
-
+    
     if request.method == 'POST':
         # >>>>>>>--- comente unas variables por aqui ---<<<<<<<
         # ----- Declaracion de variables -----
         # transports = Vehiculos.objects.all()
         # destination = Destination.objects.all()
-        start_of_route = request.POST['start_of_route']
-        end_of_route = request.POST['end_of_route']
+        # start_of_route = request.POST['start_of_route']
+        start_of_route_1 = request.POST['start_of_route_1']
+        start_of_route_2 = request.POST['start_of_route_2']
+        # end_of_route = request.POST['end_of_route']
+        end_of_route_1 = request.POST['end_of_route_1']
+        end_of_route_2 = request.POST['end_of_route_2']
         date = request.POST['date']
         time = request.POST['time']
         duration = request.POST['duration']
@@ -42,16 +46,34 @@ def det_reserve(request):
         # reserve.save()
         # d_reserve = Reserver.objects.all()
 
-    return render(request, 'det_reser.html', {
-        'title': 'Detalles Reservas',
-        # 'd_reserve': d_reserve,
-        # 'zonas': zona,
-        'start_of_route': start_of_route,
-        'end_of_route': end_of_route,
-        'date': date,
-        'time': time,
-        "duration": duration
-    })
+        return render(request, 'det_reser.html', {
+            'title': 'Detalles Reservas',
+            # 'd_reserve': d_reserve,
+            # 'zonas': zona,
+            # 'start_of_route': start_of_route,
+            # 'end_of_route': end_of_route,
+            'start_of_route_1' : start_of_route_1 ,
+            'start_of_route_2' : start_of_route_2 ,
+            'end_of_route_1': end_of_route_1,
+            'end_of_route_2': end_of_route_2,
+            'date': date,
+            'time': time,
+            "duration": duration
+        })
+    # elif request.method == 'POST':
+    #     date = request.POST['date']
+    #     time = request.POST['time']
+    #     duration = request.POST['duration']
+    #     start_of_route = request.POST['start_of_route']
+    #     end_of_route = request.POST['end_of_route']
+    #     return render(request, 'det_reser.html', {
+    #         'title': 'Detalles Reservas',
+    #         'date': date,
+    #         'time': time,
+    #         'duration': duration,
+    #         'start_of_route': start_of_route,
+    #         'end_of_route' : end_of_route
+    #     })
 
 
 def transporte(request):

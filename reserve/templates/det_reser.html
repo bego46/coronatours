@@ -10,46 +10,96 @@
 
             <div class="det-resesrva">
                 <h2 class="sub-title-2"> DETALLE DEL VIAJE </h2>
-                <div class="detail-v">
-                    
-                    <div class="box-det">
-                        <h3 class="sub-title-3"> Fecha de recogida </h3>
-                        <p>{{ date }} </p> 
-                    </div>
-                    <div class="box-det">
-                        <h3 class="sub-title-3"> Hora de recogida </h3>
-                        <p>{{ time }} </p> 
-                    </div>
-                    <div class="box-det-des">
-                        <h3 class="sub-title-3">Desde </h3>
-                        <span id="start" onchange="calcRoute();"  name="start_of_route" value="{{start_of_route}}">{{start_of_route}}</span>
-                        <hr>
-                        <h3 class="sub-title-3">Hasta </h3>
-                        <span id="end" onchange="calcRoute();"  name="end_of_route" value="{{end_of_route}}">{{end_of_route}}</span>
-                    </div>
-                    <div class="box-det-des">
-                        <h3 class="sub-title-3">Distancia </h3>
-                        <span id="distancia-d"></span>
-                       
-                    </div>
-                    <div class="box-det-des">
-                        <h3 class="sub-title-3">Duracion </h3>
-                        <span id="duracion-d" ></span> 
-                    </div>
-                    <form method="POST" action="{% url 'transporte' %}" >
-                        {% csrf_token %}
-                        <input type="hidden" value="{{start_of_route}}" name="start_of_route" />  
-                        <input type="hidden" value="{{end_of_route}}" name="end_of_route" />  
-                        <input type="hidden" value="{{date}}" name="date" />  
-                        <input type="hidden" value="{{time}}" name="time" />  
-                        <input type="hidden" id="distanceId" value="" name="distance" /> 
-                        <input type="hidden" name="duration" id="durationId" value="" />  
-                        <input type="hidden" name="store" id="v-store" value="" />  
-                        <div class="box-btns">
-                            <a href="{% url 'reserve' %}" class="btn-white" > Modificar </a>
-                            <input type="submit" class="btn-white" value="Escoge transporte" />
+
+                <button onclick="mostrarContenido(1)">Ida</button>
+                <button onclick="mostrarContenido(2)">Vuelta</button>
+
+                <div id="contenido1">
+                    <div class="detail-v">
+                        <h2>Detalles de la ida</h2>
+                        <div class="box-det">
+                            <h3 class="sub-title-3"> Fecha de recogida </h3>
+                            <p>{{ date }} </p> 
                         </div>
-                    </form>
+                        <div class="box-det">
+                            <h3 class="sub-title-3"> Hora de recogida </h3>
+                            <p>{{ time }} </p> 
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Desde </h3>
+                            <span id="start" onchange="calcRoute();"  name="start_of_route_1" value="{{start_of_route_1}}">{{start_of_route_1}}</span>
+                            <hr>
+                            <h3 class="sub-title-3">Hasta </h3>
+                            <span id="end" onchange="calcRoute();"  name="end_of_route_1" value="{{end_of_route_1}}">{{end_of_route_1}}</span>
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Distancia </h3>
+                            <span id="distancia-d"></span>
+                            
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Duracion </h3>
+                            <span id="duracion-d" ></span> 
+                        </div>
+                        <form method="POST" action="{% url 'transporte' %}" >
+                            {% csrf_token %}
+                            <input type="hidden" value="{{start_of_route_1}}" name="start_of_route_1" />  
+                            <input type="hidden" value="{{end_of_route_1}}" name="end_of_route_1" />  
+                            <input type="hidden" value="{{date}}" name="date" />  
+                            <input type="hidden" value="{{time}}" name="time" />  
+                            <input type="hidden" id="distanceId" value="" name="distance" /> 
+                            <input type="hidden" name="duration" id="durationId" value="" />  
+                            <input type="hidden" name="store" id="v-store" value="" />  
+                            <div class="box-btns">
+                                <a href="{% url 'reserve' %}" class="btn-white" > Modificar </a>
+                                <input type="submit" class="btn-white" value="Escoge transporte" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="contenido2" style="display: none;">
+                    <div class="detail-v">
+                        <h2>Detalles de la vuelta</h2>
+                        <div class="box-det">
+                            <h3 class="sub-title-3"> Fecha de recogida </h3>
+                            <p>{{ date }} </p> 
+                        </div>
+                        <div class="box-det">
+                            <h3 class="sub-title-3"> Hora de recogida </h3>
+                            <p>{{ time }} </p> 
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Desde </h3>
+                            <span id="start" onchange="calcRoute();"  name="start_of_route_2" value="{{start_of_route_2}}">{{start_of_route_2}}</span>
+                            <hr>
+                            <h3 class="sub-title-3">Hasta </h3>
+                            <span id="end" onchange="calcRoute();"  name="end_of_route_2" value="{{end_of_route_2}}">{{end_of_route_2}}</span>
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Distancia </h3>
+                            <span id="distancia-d"></span>
+                            
+                        </div>
+                        <div class="box-det-des">
+                            <h3 class="sub-title-3">Duracion </h3>
+                            <span id="duracion-d" ></span> 
+                        </div>
+                        
+                        <form method="POST" action="{% url 'transporte' %}" >
+                            {% csrf_token %}
+                            <input type="hidden" value="{{start_of_route_2}}" name="start_of_route_2" />  
+                            <input type="hidden" value="{{end_of_route_2}}" name="end_of_route_2" />  
+                            <input type="hidden" value="{{date}}" name="date" />  
+                            <input type="hidden" value="{{time}}" name="time" />  
+                            <input type="hidden" id="distanceId" value="" name="distance" /> 
+                            <input type="hidden" name="duration" id="durationId" value="" />  
+                            <input type="hidden" name="store" id="v-store" value="" />  
+                            <div class="box-btns">
+                                <a href="{% url 'reserve' %}" class="btn-white" > Modificar </a>
+                                <input type="submit" class="btn-white" value="Escoge transporte" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 
             </div>

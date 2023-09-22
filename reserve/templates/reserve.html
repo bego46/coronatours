@@ -29,7 +29,7 @@
         </select>
       </form>     
 
-
+      <!-- <<< SOLO IDA >>> -->
       <div id="ida" >
         <div class="ida">
           <form method="POST" action="{% url 'reserve_detail' %}">
@@ -93,7 +93,7 @@
     </div>
 
 
-    {% comment %} IDA Y VUELTA {% endcomment %}
+    {% comment %} <<<< IDA Y VUELTA >>>> {% endcomment %}
   
     <div id="idayvuelta" style="display: none;">
       <h3> Datos de Ida</h3>
@@ -101,37 +101,30 @@
       <form method="POST" action="{% url 'reserve_detail' %}">
         {% csrf_token %}
 
-        <datalist id="bookmark_list">
-          <!-- Este bucle invoca el listado de los destinos -->
-          {% for destino in destination %}
-          <option value="{{destino.value}}">{{destino.title}}</option>
-          {% endfor %}
-        </datalist>
-
         <div class="box-form">
           {% comment %} Le Coloque id a los dos inputs donde se definia la
           ruta {% endcomment %}
           <div class="d-cont">
-            <label class="label_reserve" for="start_of_route"
+            <label class="label_reserve" for="start_of_route_1"
               >Elije la ubicación de partida</label
             >
             <input
               type="text"
               id="start_b"
-              name="start_of_route"
+              name="start_of_route_1"
               class="form_reserve"
               required
             />
           </div>
 
           <div class="d-cont">
-            <label class="label_reserve" for="end_of_route"
+            <label class="label_reserve" for="end_of_route_1"
               >Elije un destino</label
             >
             <input
               type="text"
               id="end_b"
-              name="end_of_route"
+              name="end_of_route_1"
               class="form_reserve"
               required
             />
@@ -153,39 +146,30 @@
         </div>
         <input type="hidden" id="distanceId" value="" name="distance" />
         <input type="hidden" name="duration" id="durationId" value="" />
-         <h3> Datos de Regreso</h3>
-
-        <datalist id="bookmark_list">
-          <!-- Este bucle invoca el listado de los destinos -->
-          {% for destino in destination %}
-          <option value="{{destino.value}}">{{destino.title}}</option>
-          {% endfor %}
-        </datalist>
-
+        
+        <h3> Datos de Regreso</h3>
         <div class="box-form">
-          {% comment %} Le Coloque id a los dos inputs donde se definia la
-          ruta {% endcomment %}
           <div class="d-cont">
-            <label class="label_reserve" for="start_of_route"
+            <label class="label_reserve" for="start_of_route_2"
               >Elije la ubicación de partida</label
             >
             <input
               type="text"
               id="start_b2"
-              name="start_of_route"
+              name="start_of_route_2"
               class="form_reserve"
               required
             />
           </div>
 
           <div class="d-cont">
-            <label class="label_reserve" for="end_of_route"
+            <label class="label_reserve" for="end_of_route_2"
               >Elije un destino</label
             >
             <input
               type="text"
               id="end_b2"
-              name="end_of_route"
+              name="end_of_route_2"
               class="form_reserve"
               required
             />
@@ -213,6 +197,7 @@
 
     </div>
 
+  <!-- <<<< PUNTO A PUNTO >>>> -->
     <div id="puntoapunto" style="display: none;">
       <h2>punto a punto ...</h2>
       <form method="POST" action="{% url 'reserve_detail' %}">
